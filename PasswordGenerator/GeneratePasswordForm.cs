@@ -12,8 +12,8 @@ namespace PasswordGenerator
         {
             InitializeComponent();
         }
-        
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\fullt\\Source\\Repos\\PasswordGenerator\\PasswordGenerator\\PasswordDatabase.mdf;Integrated Security=True");
+
+        SqlConnection con = new SqlConnection("Data Source = localhost; Initial Catalog = PasswordGeneratorDB; Integrated Security = True");
         private void generateBtn_Click(object sender, EventArgs e)
         {
             int length = 0;
@@ -36,9 +36,9 @@ namespace PasswordGenerator
             StringBuilder result = new StringBuilder();
             new RNGCryptoServiceProvider().GetBytes(bytes);
 
-            foreach(byte b in bytes)
+            foreach (byte b in bytes)
             {
-                switch(rnd.Next(4))
+                switch (rnd.Next(4))
                 {
                     case 0:
                         result.Append(lower[b % lower.Count()]);
@@ -72,12 +72,12 @@ namespace PasswordGenerator
             //save the generated password into the database
             //if the password is not generated, throw an error
 
-            if(passwordLbl.Text == "")
+            if (passwordLbl.Text == "")
             {
-                MessageBox.Show("You must first generate a password before saving.", "No Password to Save", 
+                MessageBox.Show("You must first generate a password before saving.", "No Password to Save",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(passwordNameBox.Text == "")
+            else if (passwordNameBox.Text == "")
             {
                 MessageBox.Show("You must provide a name for the password before saving.", "No Password Name",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,7 +96,7 @@ namespace PasswordGenerator
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Your new password has been saved.", "Success", MessageBoxButtons.OK);
                 }
-                catch(SqlException ex)
+                catch (SqlException ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "Error");
                 }
@@ -105,6 +105,12 @@ namespace PasswordGenerator
                     con.Close();
                 }
             }
+        }
+
+        private void showAllBtn_Click(object sender, EventArgs e)
+        {
+            UserPasswords userPasswords = new UserPasswords();
+            userPasswords.ShowDialog();    
         }
     }
 }

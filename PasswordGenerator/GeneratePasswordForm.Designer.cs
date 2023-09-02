@@ -28,82 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.generateLbl = new System.Windows.Forms.Label();
-            this.generateBtn = new System.Windows.Forms.Button();
-            this.passwordLbl = new System.Windows.Forms.Label();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.passwordNameLbl = new System.Windows.Forms.Label();
-            this.passwordNameBox = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            generateLbl = new Label();
+            generateBtn = new Button();
+            passwordLbl = new Label();
+            saveBtn = new Button();
+            passwordNameLbl = new Label();
+            passwordNameBox = new TextBox();
+            showAllBtn = new Button();
+            SuspendLayout();
             // 
             // generateLbl
             // 
-            this.generateLbl.AutoSize = true;
-            this.generateLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.generateLbl.Location = new System.Drawing.Point(320, 157);
-            this.generateLbl.Name = "generateLbl";
-            this.generateLbl.Size = new System.Drawing.Size(299, 41);
-            this.generateLbl.TabIndex = 0;
-            this.generateLbl.Text = "Generate A Password";
+            generateLbl.AutoSize = true;
+            generateLbl.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            generateLbl.Location = new Point(324, 162);
+            generateLbl.Name = "generateLbl";
+            generateLbl.Size = new Size(299, 32);
+            generateLbl.TabIndex = 0;
+            generateLbl.Text = "Generate Unique Password";
             // 
             // generateBtn
             // 
-            this.generateBtn.Location = new System.Drawing.Point(339, 213);
-            this.generateBtn.Name = "generateBtn";
-            this.generateBtn.Size = new System.Drawing.Size(86, 33);
-            this.generateBtn.TabIndex = 1;
-            this.generateBtn.Text = "Generate";
-            this.generateBtn.UseVisualStyleBackColor = true;
-            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
+            generateBtn.Location = new Point(339, 213);
+            generateBtn.Name = "generateBtn";
+            generateBtn.Size = new Size(86, 33);
+            generateBtn.TabIndex = 1;
+            generateBtn.Text = "Generate";
+            generateBtn.UseVisualStyleBackColor = true;
+            generateBtn.Click += generateBtn_Click;
             // 
             // passwordLbl
             // 
-            this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.passwordLbl.Location = new System.Drawing.Point(339, 61);
-            this.passwordLbl.Name = "passwordLbl";
-            this.passwordLbl.Size = new System.Drawing.Size(0, 41);
-            this.passwordLbl.TabIndex = 2;
+            passwordLbl.AutoSize = true;
+            passwordLbl.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            passwordLbl.Location = new Point(339, 61);
+            passwordLbl.Name = "passwordLbl";
+            passwordLbl.Size = new Size(0, 32);
+            passwordLbl.TabIndex = 2;
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(513, 213);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(86, 33);
-            this.saveBtn.TabIndex = 3;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            saveBtn.Location = new Point(513, 213);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(86, 33);
+            saveBtn.TabIndex = 3;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
             // 
             // passwordNameLbl
             // 
-            this.passwordNameLbl.AutoSize = true;
-            this.passwordNameLbl.Location = new System.Drawing.Point(329, 269);
-            this.passwordNameLbl.Name = "passwordNameLbl";
-            this.passwordNameLbl.Size = new System.Drawing.Size(182, 20);
-            this.passwordNameLbl.TabIndex = 4;
-            this.passwordNameLbl.Text = "What is this password for?";
+            passwordNameLbl.AutoSize = true;
+            passwordNameLbl.Location = new Point(339, 271);
+            passwordNameLbl.Name = "passwordNameLbl";
+            passwordNameLbl.Size = new Size(144, 15);
+            passwordNameLbl.TabIndex = 4;
+            passwordNameLbl.Text = "What is this password for?";
             // 
             // passwordNameBox
             // 
-            this.passwordNameBox.Location = new System.Drawing.Point(339, 303);
-            this.passwordNameBox.Name = "passwordNameBox";
-            this.passwordNameBox.Size = new System.Drawing.Size(260, 27);
-            this.passwordNameBox.TabIndex = 5;
+            passwordNameBox.Location = new Point(339, 303);
+            passwordNameBox.Name = "passwordNameBox";
+            passwordNameBox.Size = new Size(260, 23);
+            passwordNameBox.TabIndex = 5;
+            // 
+            // showAllBtn
+            // 
+            showAllBtn.Location = new Point(339, 352);
+            showAllBtn.Name = "showAllBtn";
+            showAllBtn.Size = new Size(86, 33);
+            showAllBtn.TabIndex = 6;
+            showAllBtn.Text = "Passwords";
+            showAllBtn.UseVisualStyleBackColor = true;
+            showAllBtn.Click += showAllBtn_Click;
             // 
             // GeneratePasswordForm
             // 
-            this.ClientSize = new System.Drawing.Size(1025, 562);
-            this.Controls.Add(this.passwordNameBox);
-            this.Controls.Add(this.passwordNameLbl);
-            this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.passwordLbl);
-            this.Controls.Add(this.generateBtn);
-            this.Controls.Add(this.generateLbl);
-            this.Name = "GeneratePasswordForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            ClientSize = new Size(1025, 562);
+            Controls.Add(showAllBtn);
+            Controls.Add(passwordNameBox);
+            Controls.Add(passwordNameLbl);
+            Controls.Add(saveBtn);
+            Controls.Add(passwordLbl);
+            Controls.Add(generateBtn);
+            Controls.Add(generateLbl);
+            Name = "GeneratePasswordForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -113,5 +124,6 @@
         private Button saveBtn;
         private Label passwordNameLbl;
         private TextBox passwordNameBox;
+        private Button showAllBtn;
     }
 }
